@@ -11,7 +11,7 @@ module Grafana
 
       raise ArgumentError.new('key must be an String') unless( key.is_a?(String) )
 
-      endpoint = format('/api/snapshot/%s', key)
+      endpoint = format('/api/snapshots/%s', key)
       @logger.debug("Get Snapshot by Id #{key} (GET #{endpoint})") if @debug
 
       get(endpoint)
@@ -21,9 +21,9 @@ module Grafana
     # POST /api/snapshots
     def create_snapshot( dashboard = {} )
 
-      raise ArgumentError.new('dashboard must be an Hash') unless( dashboard.is_a?(Hash) )
+      raise ArgumentError.new('dashboard must be an String') unless( dashboard.is_a?(String) )
 
-      endpoint = '/api/snapshot'
+      endpoint = '/api/snapshots'
       @logger.debug("Creating dashboard snapshot (POST #{endpoint})") if @debug
 
       post(endpoint, dashboard)
