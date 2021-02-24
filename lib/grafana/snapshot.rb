@@ -21,7 +21,7 @@ module Grafana
     # POST /api/snapshots
     def create_snapshot( dashboard = {} )
 
-      raise ArgumentError.new('dashboard must be an Hash') unless( dashboard.is_a?(String) )
+      raise ArgumentError.new('dashboard must be an Hash') unless( dashboard.is_a?(Hash) )
 
       endpoint = '/api/snapshot'
       @logger.debug("Creating dashboard snapshot (POST #{endpoint})") if @debug
